@@ -3,11 +3,12 @@ cores = {'brancoeazul':'\033[30;44m',
          'amarelo': '\033[33m',
          'verdeeamarelo': '\033[33;42m'}
 
-real = float(input('Quantos reais você tem? R$ '))
 local = input('Para qual país da América do sul você quer ir? ').strip()
+real = float(input('Quantos reais você tem? R$ '))
+
 pesochile = real * 150.57  #Chile
 pesoargentina = real * 18.95  #Argentina
-pesouruguaio = real* 8.24  #Uruguai
+pesouruguaio = real * 8.24  #Uruguai
 guarani = real * 133.78  #Paraguai
 dolarsuriname = real * 0.24  #Suriname
 usdolar = real * 0.19  #Equador
@@ -17,17 +18,18 @@ novosol = real * 0.79  #Peru
 dolarguiana = real * 0.025  #Guiana
 euroguianafrancesa = real * 0.16  #Guiana francesa
 bolivarvenezuelano = real * 789067.72  #Venezuela
+
 if local.upper() == 'BRASIL':
       print(cores['verdeeamarelo'], 'Com o valor de R${:.2f} Reais você podo visitar:\033[m'.format(real))
       if real >= 100:
-            print(cores['verdeeamarelo'], '- O parque lage por: 100 reais.\033[m')
+            print(cores['verdeeamarelo'], 'O Cristo redentor por:R$83,50, mais alimentação.\033[m')
       else:
-            print(cores['verdeeamarelo'], '- O piscinão de ramos e comprar um espetinho e uma brahma.\033[m')
+            print(cores['verdeeamarelo'], 'O parque lage por: R$10,00, mais alimentação.\033[m')
 
 if local.upper() == 'ARGENTINA':
       print(cores['brancoeazul'], 'Com seu dinheiro você pode comprar: ${:.2f} pesos argentinos.\033[m'.format(pesoargentina))
       if real >= 214:
-            print(cores['brancoeazul'], 'Você pode degustar vinhos conhecendo uma vinícola em Mendoza por: $214,00.\033[m')
+            print(cores['brancoeazul'], 'Você pode degustar vinhos conhecendo uma vinícola em Mendoza por: $214,00.\033[m'.format())
       else:
             print(cores['brancoeazul'], 'Você pode dar um rolê por Buenos aires de bicicleta.\033[m')
 if local.upper() == 'URUGUAI':
