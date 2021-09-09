@@ -1,5 +1,5 @@
 <h1> Guia de turismo pela América do sul </h1>
-<h4> O objetivo desse algorítimo é aplicar o que aprendo à um informativo de turismo. </h4>
+<h4> O objetivo desse algoritmo é aplicar o que aprendo à um informativo de turismo. </h4>
 <h4> Todas as informações relativas à valores e viagens foram obtidas no site: https://www.tripadvisor.com.br </h4>
 <h3> Algumas alterações futuras são: </h3>
 
