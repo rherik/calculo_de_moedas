@@ -7,3 +7,5 @@
 - [x] Adicionar as bandeiras dos países com emoji
 - [ ] Completar as cores referentes aos países
 - [ ] Adicionar atrações aos países: Guiana francesa e Venezuela
+- [ ] Valores de passagem, transporte, custo de estadia, custo de passaporte para primeira viagem
+- [ ] Cotação do dia utilizando uma API
