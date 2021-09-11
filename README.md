@@ -4,6 +4,6 @@
 <h3> Algumas alterações futuras são: </h3>
 
 - [x] Calcular e converter quanto de cada moeda custam as atrações
-- [ ] Adicionar mais cores referentes aos países
+- [x] Adicionar as bandeiras dos países com emoji
+- [ ] Completar as cores referentes aos países
 - [ ] Adicionar atrações aos países: Guiana francesa e Venezuela
-- [ ] Adicionar as bandeiras dos países com emoji
