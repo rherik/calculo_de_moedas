@@ -3,7 +3,7 @@
 <h4> Todas as informações relativas à valores e viagens foram obtidas no site: https://www.tripadvisor.com.br </h4>
 <h3> Algumas alterações futuras são: </h3>
 
-- Calcular e converter quanto de cada moeda custam as atrações
-- Adicionar mais cores referentes aos países
-- Adicionar atrações aos países: Guiana francesa e Venezuela
-- Adicionar as bandeiras dos países com emoji
+- [x] Calcular e converter quanto de cada moeda custam as atrações
+- [ ] Adicionar mais cores referentes aos países
+- [ ] Adicionar atrações aos países: Guiana francesa e Venezuela
+- [ ] Adicionar as bandeiras dos países com emoji
