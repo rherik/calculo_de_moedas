@@ -1,120 +1,139 @@
 from time import sleep
 import emoji
-cores = {'brancoeazul': '\033[30;44m',
-         'vermelhoebranco': '\033[31;40m',
-         'amarelo': '\033[33m',
-         'verdeeamarelo': '\033[33;42m'}
-
+cores = ('\033[7;44m',        #Azul
+         '\033[31;47m',       #Vermelho
+         '\033[33;7m',       #Amarelo
+         '\033[33;42m')       #Amarelo e verde
 local = input('Para qual país da América do sul você quer ir? ').strip()
 sleep(1)
-print(emoji.emojize('🇧🇷', use_aliases=True), emoji.emojize('🇦🇷', use_aliases=True), emoji.emojize('🇺🇾', use_aliases=True),
-      emoji.emojize('🇵🇾', use_aliases=True), emoji.emojize('🇸🇷', use_aliases=True), emoji.emojize('🇪🇨', use_aliases=True),
-      emoji.emojize('🇧🇴', use_aliases=True), emoji.emojize('🇨🇴', use_aliases=True), emoji.emojize('🇵🇪', use_aliases=True),
-      emoji.emojize('🇬🇾', use_aliases=True), emoji.emojize('🇬🇫', use_aliases=True), emoji.emojize('🇻🇪', use_aliases=True),
-      emoji.emojize('🇨🇱', use_aliases=True))
+print(f'{emoji.emojize(" 🇧🇷", use_aliases=True)} - {emoji.emojize("🇦🇷", use_aliases=True)} - '
+      f'{emoji.emojize("🇺🇾", use_aliases=True)} - {emoji.emojize("🇵🇾", use_aliases=True)} - '
+      f'{emoji.emojize("🇸🇷", use_aliases=True)} - {emoji.emojize("🇪🇨", use_aliases=True)} - '
+      f'{emoji.emojize("🇧🇴", use_aliases=True)} - {emoji.emojize("🇨🇴", use_aliases=True)} - '
+      f'{emoji.emojize("🇵🇪", use_aliases=True)} - {emoji.emojize("🇬🇾", use_aliases=True)} - '
+      f'{emoji.emojize("🇬🇫", use_aliases=True)} - {emoji.emojize("🇻🇪", use_aliases=True)} - '
+      f'{emoji.emojize("🇨🇱", use_aliases=True)}' * 5)
 sleep(1)
 real = float(input('Quantos reais você tem? R$ '))
+paises = ['ARGENTINA', 18.41, 'BOLÍVIA', 1.33, 'CHILE', 150.57, 'COLÔMBIA', 736.38, 'EQUADOR', 0.19, 'GUIANA', 0.025,
+          'GUIANA FRANCESA', 0.16, 'PARAGUAI', 133.78, 'PERU', 0.79, 'SURINAME', 0.24, 'URUGUAI', 8.24, 'VENEZUELA',
+          789067.72]
 
-pesochile = 150.57  #Chile
-pesoargentina = 18.41  #Argentina
-pesouruguaio = 8.24  #Uruguai
-guarani = 133.78  #Paraguai
-dolarsuriname = 0.24  #Suriname
-usdolar = 0.19  #Equador
-boliviano = 1.33  #Bolívia
-pesocolombiano = 736.38  #Colômbia
-novosol = 0.79  #Peru
-dolarguiana = 0.025  #Guiana
-euroguianafrancesa = 0.16  #Guiana francesa
-bolivarvenezuelano = 789067.72  #Venezuela
+#Valores dentro de format nos if's/else's são os preços em reais para a devida conversão para a moeda local.
 
 if local.upper() == 'BRASIL':
       sleep(1)
-      print(cores['verdeeamarelo'], 'Com o valor de R${:.2f} Reais você podo visitar:\033[m'.format(real))
+      print(cores[3], f'Com o valor de R${real:.2f} Reais você podo visitar:\033[m')
       sleep(1)
       if real >= 100:
-            print(cores['verdeeamarelo'], 'O Cristo redentor por:\nR$83,50, mais alimentação.\033[m')
+            print(cores[3], 'O Cristo redentor por:\nR$83,50, mais alimentação.\033[m')
       else:
-            print(cores['verdeeamarelo'], 'O parque lage por:\nR$10,00, mais alimentação.\033[m')
+            print(cores[3], 'O parque lage por:\nR$10,00, mais alimentação.\033[m')
 
 if local.upper() == 'ARGENTINA':
       sleep(1)
-      print(cores['brancoeazul'], 'Com seu dinheiro você pode comprar:\n${:.2f} pesos argentinos.\033[m'.format(pesoargentina * real))
+      print(cores[0],
+            f'Com seu dinheiro você pode comprar:${paises[1] * real:.2f} pesos argentinos.\033[m')
       sleep(1)
       if real >= 214:
-            print(cores['brancoeazul'], 'Você pode degustar vinhos conhecendo uma vinícola em Mendoza por:\n${:.2f}.\033[m'.format(214 * pesoargentina))
+            print(cores[0],
+                  f'Você pode degustar vinhos conhecendo uma vinícola em Mendoza por:${214 * paises[1]:.2f}.\033[m')
       else:
-            print(cores['brancoeazul'], 'Você pode dar um rolê por Buenos aires de bicicleta por:\n${:.2f}.\033[m'.format(pesoargentina))
-if local.upper() == 'URUGUAI':
-      sleep(1)
-      print(cores['brancoeazul'], 'Com seu dinheiro você pode comprar:\n${:.2f} Pesos uruguaios.\033[m'.format(pesouruguaio * real))
-      sleep(1)
-      if real >= 319:
-            print(cores['brancoeazul'], 'Conheça a Colônia do Sacramento por:\n${:.2f}.\033[m'.format(pesouruguaio * 319))
-      else:
-            print(cores['brancoeazul'], 'Vá ao Pub Crawl Montevidéu, com valores à partir de:\n${:.2f}.\033[m'.format(pesouruguaio * 109))
-if local.upper() == 'PARAGUAI':
-      sleep(1)
-      print(cores['vermelhoebranco'], 'Com seu dinheiro você pode comprar:\n₲{:.2f} Guaranis.\033[m'.format(guarani))
-      sleep(1)
-      if real >= 640:
-            print(cores['vermelhoebranco'], 'Você pode ir às Cataratas de Cristal por:\n₲{:.2f}.\033[m'.format(guarani * 640))
-      else:
-            print(cores['vermelhoebranco'], 'Você pode fazer um tour pelas missões jesuísticas por:\n₲{:.2f}\033[m'.format(guarani))
-if local.upper() == 'SURINAME':
-      print(cores['vermelhoebranco'], 'Com seu dinheiro você pode comprar:\n${:.2f} Dolares do Suriname.'.format(dolarsuriname * real))
-      sleep(1)
-      if real >= 550:
-            print('Faça uma excursão pelas Ruines of Jodensavanne por:\n${:.2f}.\033[m'.format(dolarsuriname * 550))
-      else:
-            print('Faça uma City tour por:\n${:.2f}.\033[m'.format(dolarsuriname * 170))
-if local.upper() == 'EQUADOR':
-      print(cores['vermelhoebranco'], 'Com seu dinheiro você pode comprar:\n${:.2f} Dolares \033[m'.format(usdolar * real))
-      sleep(1)
-      if real >= 1300:
-            print('O melhor passeio a se fazer é visitar as ilhas Galápagos e fazer um mergulho pela paissagem deslumbrante por:\n${:.2f}.\033[m'.format(usdolar * 1.300))
-      else:
-            print('Um ótimo passeio é ir nas Termas de Papallacta por:\n${:.2f}.\033[m'.format(usdolar * 472.73))
-      sleep(2)
-      print('''Curiosidade: O Equador adotou o dólar como moeda para recuperar a economia do país, já que por volta do ano 1999 o
- Equador apresentava inflação e desvalorização do Sucre Equatoriano que era a moeda na época. Com essa mudança foi
- possível o país equilibrar a economia e conter a inflação.''')
+            print(cores[0],
+                  f'Você pode dar um rolê por Buenos aires de bicicleta por:${paises[1]:.2f}.\033[m')
+
 if local.upper() == 'BOLÍVIA':
-      print(cores['vermelhoebranco'], 'Com seu dinheiro você pode comprar:\n${:.2f} '.format(boliviano * real))
+      print(cores[1], f'Com seu dinheiro você pode comprar:\n${paises[3] * real:.2f}\033[m')
       sleep(1)
       if real >= 137:
-            print('Passeio de esqui pela geleira de  Chalcataya por:\n${:.2f}'.format(boliviano * 136.24))
+            print(cores[1], f'Passeio de esqui pela geleira de  Chalcataya por:${paises[3] * 136.24:.2f}\033[m')
       else:
-            print('Excursão histórica pela cidade de La Paz por:\n${:.2f}'.format(boliviano * 26.56))
-if local.upper() == 'COLÔMBIA':
-          print(cores['vermelhoebranco'], 'Com seu dinheiro você pode comprar:\n${:.2f} '.format(pesocolombiano * real))
-          sleep(1)
-          if real >= 473:
-                print('Você pode fazer uma excursão turística à cidade de Bogotá com passeio de teleférico por:\n${:.2f}'.format(pesocolombiano * 472.73))
-          else:
-                print('Seja um Aquanauta em um mergulho pelo litoral de San Andrés por:\n${:.2f}'.format(pesocolombiano * 185.90))
-if local.upper() == 'PERU':
-      print(cores['vermelhoebranco'], 'Com seu dinheiro você pode comprar:\nS/{:.2f} '.format(novosol * real))
-      sleep(1)
-      if real >= 218:
-            print('Você pode ter uma experiência gastronômica com um chef em Mancora por:\nS/{:.2f}'.format(novosol * 217.93))
-      else:
-            print('Conheça Machupicchu com um guia por:\nS/{:.2f}'.format(novosol * 216.55))
-if local.upper() == 'GUIANA':
-      print(cores['vermelhoebranco'], 'Com seu dinheiro você pode comprar:\n${:.2f} '.format(dolarguiana * real))
-      sleep(1)
-      if real >= 1450:
-            print('Hospede-se no Guyana Marriott Hotel Georgetown por:\n${:.2f}'.format(dolarguiana * 1450))
-      else:
-            print('Faça uma excursão de curry em Georgetown por:\n${:.2f}'.format(dolarguiana * 663.94))
-if local.upper() == 'GUIANA FRANCESA':
-      print(cores['vermelhoebranco'], 'Com seu dinheiro você pode comprar:\n${:.2f} '.format(euroguianafrancesa * real))
-if local.upper() == 'VENEZUELA':
-      print(cores['vermelhoebranco'], 'Com seu dinheiro você pode comprar:\n${:.2f} '.format(bolivarvenezuelano * real))
+            print(cores[1], f'Excursão histórica pela cidade de La Paz por:${paises[3] * 26.56:.2f}\033[m')
+
 if local.upper() == 'CHILE':
-      print(cores['vermelhoebranco'], 'Com seu dinheiro você pode comprar:\n${:.2f} '.format(pesochile * real))
+      print(cores[1], f'Com seu dinheiro você pode comprar:${paises[5] * real:.2f}\033[m')
       sleep(1)
       if real >= 1200:
-            print('Faça uma excursão de bicicleta de dia inteiro no Vale do Maipo e degustação de vinhos de Santiago por:\n${:.2f}'.format(pesochile * 1046.38))
+            print(cores[1], f'Faça uma excursão de bicicleta de dia inteiro no Vale do Maipo e degustação de vinhos de Santiago '
+                  f'por:${paises[5] * 1046.38:.2f}\033[m')
       else:
-            print('Faça um passeio com um guia pelo Vulcão Osorno e pelas Cataratas Petrohué por:\n${:.2f}'.format(pesochile * 212.46))
+            print(cores[1], f'Faça um passeio com um guia pelo Vulcão Osorno e pelas Cataratas Petrohué '
+                  f'por:${paises[5] * 212.46:.2f}\033[m')
+
+if local.upper() == 'COLÔMBIA':
+          print(cores[1],
+                f'Com seu dinheiro você pode comprar:${paises[7] * real:.2f}\033[m')
+          sleep(1)
+          if real >= 473:
+                print(cores[1], f'Você pode fazer uma excursão turística à cidade de Bogotá com passeio de teleférico '
+                      f'por:${paises[7] * 472.73:.2f}\033[m')
+          else:
+                print(cores[1], f'Seja um Aquanauta em um mergulho pelo litoral de San Andrés '
+                                f'por:${paises[7] * 185.90:.2f}\033[m')
+
+if local.upper() == 'EQUADOR':
+      print(cores[1], f'Com seu dinheiro você pode comprar:${paises[9] * real:.2f} Dolares \033[m')
+      sleep(1)
+      if real >= 1300:
+            print(cores[1], f'O melhor passeio a se fazer é visitar as ilhas Galápagos e fazer um mergulho '
+                  f'pela paissagem deslumbrante por:${paises[9] * 1.300:.2f}.\033[m')
+      else:
+            print(cores[1], f'Um ótimo passeio é ir nas Termas de Papallacta por:${paises[9] * 472.73:.2f}.\033[m')
+      sleep(2)
+      print(cores[1], '''Curiosidade: O Equador adotou o dólar como moeda para recuperar a economia do país, já que por volta 
+      do ano 1999 o Equador apresentava inflação e desvalorização do Sucre Equatoriano que era a moeda na época. 
+      Com essa mudança foi possível o país equilibrar a economia e conter a inflação.\033[m''')
+
+if local.upper() == 'GUIANA':
+      print(cores[1], f'Com seu dinheiro você pode comprar:\n${paises[11] * real:.2f}\033[m')
+      sleep(1)
+      if real >= 1450:
+            print(f'Hospede-se no Guyana Marriott Hotel Georgetown por:\n${paises[11] * 1450:.2f}')
+      else:
+            print(f'Faça uma excursão de curry em Georgetown por:\n${paises[11] * 663.94:.2f}')
+
+if local.upper() == 'GUIANA FRANCESA':
+      print(cores[1], f'Com seu dinheiro você pode comprar:\n${paises[13] * real:.2f}\033[m')
+
+if local.upper() == 'PARAGUAI':
+      sleep(1)
+      print(cores[1], f'Com seu dinheiro você pode comprar:\n₲{paises[15] * real:.2f} Guaranis.\033[m')
+      sleep(1)
+      if real >= 640:
+            print(cores[1], f'Você pode ir às Cataratas de Cristal '
+                                            f'por:\n₲{paises[15] * 640:.2f}.\033[m')
+      else:
+            print(cores[1], f'Você pode fazer um tour pelas missões jesuísticas '
+                                            f'por:\n₲{paises[15]:.2f}\033[m')
+
+if local.upper() == 'PERU':
+      print(cores[1], f'Com seu dinheiro você pode comprar:\nS/{paises[17] * real:.2f} ')
+      sleep(1)
+      if real >= 218:
+            print(f'Você pode ter uma experiência gastronômica com um chef em Mancora '
+                  f'por:\nS/{paises[17] * 217.93:.2f}')
+      else:
+            print(f'Conheça Machupicchu com um guia por:\nS/{paises[17] * 216.55:.2f}')
+
+if local.upper() == 'SURINAME':
+      print(cores[1], f'Com seu dinheiro você pode '
+                                      f'comprar:\n${paises[19] * real:.2f} Dolares do Suriname.')
+      sleep(1)
+      if real >= 550:
+            print(f'Faça uma excursão pelas Ruines of Jodensavanne por:\n${paises[19] * 550:.2f}.\033[m')
+      else:
+            print(f'Faça uma City tour por:\n${paises[19] * 170:.2f}.\033[m')
+
+if local.upper() == 'URUGUAI':
+      sleep(1)
+      print(cores[0], f'Com seu dinheiro você pode comprar:\n${paises[21] * real:.2f} '
+                                  f'Pesos uruguaios.\033[m')
+      sleep(1)
+      if real >= 319:
+            print(cores[0], f'Conheça a Colônia do Sacramento por:\n${paises[21] * 319:.2f}.\033[m')
+      else:
+            print(cores[0], f'Vá ao Pub Crawl Montevidéu, com valores à partir '
+                                        f'de:\n${paises[21] * 109:.2f}.\033[m')
+
+if local.upper() == 'VENEZUELA':
+      print(cores[1], f'Com seu dinheiro você pode comprar:\n${paises[23] * real:.2f}')
